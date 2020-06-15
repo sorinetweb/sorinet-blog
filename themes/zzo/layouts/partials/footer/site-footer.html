@@ -1,0 +1,42 @@
+<footer class="footer">
+    {{ partial "footer/select-lang" . }}
+    {{ partial "footer/links-social.html" . }}
+    {{ partial "footer/go-to-top" . }}
+    <hr />
+
+    <div class="basicflex">
+        {{ range $.Param "footerLinks" }}
+            <a href="{{ .link }}" class="footer__link" target="_blank" rel="noreferrer">{{ .name }}</a>
+        {{ end }}
+    </div>
+
+    <div class="footer__poweredby">
+        {{ partial "footer/site-counter" . }}
+        {{ if $.Site.Copyright }}        
+<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/" class="footer__copyright--img"><img alt="CC BY-NC" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc.svg"></a>
+            <p class="caption">
+                {{ if $.Site.Params.copyrightOptions.enableCopyrightLink }}
+                    {{ $leftString := replace (index (split $.Site.Copyright "{}") 0) "{year}" now.Year }}
+                    {{ $rightString := replace (index (split $.Site.Copyright "{}") 1) "{year}" now.Year }}
+
+                    {{ if and ($.Site.Params.copyrightOptions.copyrightLinkImage) ($.Site.Params.copyrightOptions.copyrightLinkText) }}
+                        <a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}" class="footer__copyright--img"><img alt="{{ $.Site.Params.copyrightOptions.copyrightLinkText }}" style="border-width:0" src="{{ $.Site.Params.copyrightOptions.copyrightLinkImage }}"/></a>{{ $leftString | markdownify }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString | markdownify }}
+                    {{ else }}
+                        {{ $leftString | markdownify }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString | markdownify }}
+                    {{ end }}
+                {{ else }}
+                    {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
+                {{ end }}
+            </p>
+        {{ end }}
+
+        {{ if $.Param "showPoweredBy" }}
+            <p class="caption">تمامی حقوق این وب سایت متعلق به <a href="/" target="_blank" rel="noreferrer">سورینت وب</a> می باشد.</p>
+<!-- Begin WebGozar.com Counter code -->
+<script type="text/javascript" language="javascript" src="http://www.webgozar.ir/c.aspx?Code=3749797&amp;t=counter" ></script>
+<noscript><a href="http://www.webgozar.com/counter/stats.aspx?code=3749797" target="_blank">&#1570;&#1605;&#1575;&#1585;</a></noscript>
+<!-- End WebGozar.com Counter code -->
+        {{ end }}
+        
+    </div> 
+</footer>

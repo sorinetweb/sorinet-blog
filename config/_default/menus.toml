@@ -1,0 +1,47 @@
+[[main]]
+  identifier = "posts"
+  name = "مطالب"
+  url = "posts"
+  weight = 1
+
+[[main]]
+  identifier = "categories"
+  name = "دسته بندی ها"
+  url = "categories"
+  weight = 2
+
+[[main]]
+  identifier = "shop"
+  name = "فروشگاه"
+  url = "/series/فروشگاه/"
+  weight = 3
+
+[[main]]
+  parent = "shop"
+  name = "خدمات"
+  url = "/categories/services"
+
+[[main]]
+  parent = "shop"
+  name = "اسکریپت"
+  url = "/categories/scripts"
+
+[[main]]
+  identifier = "archive"
+  name = "آرشیو"
+  url = "archive"
+  weight = 4
+
+[[main]]
+  identifier = "about"
+  name = "درباره ما"
+  url = "about"
+  weight = 5
+
+[[main]]
+  identifier = "contact"
+  name = "تماس با ما"
+  url = "contact"
+  weight = 6
+
+
